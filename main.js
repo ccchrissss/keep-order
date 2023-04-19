@@ -1,22 +1,25 @@
-function SeriesSum(n) {
+function keepOrder(ary, val) {
 
-  let arrayIntegers = [1]
-  let arrayCompleteSeries = [1]
+  let lowestIndex = 0
 
-  for (i = 0; i < n; i++) {
-    arrayIntegers.push(arrayIntegers[i] + 3)
+  for (let i = 0; val > ary[i]; i++) {
+    lowestIndex = i + 1
   }
 
-  for (i = 1; i < n; i++) {
-    arrayCompleteSeries.push(1 / arrayIntegers[i])
-  }
-  
-  // console.log(arrayCompleteSeries)
-
-  if (n == 0) {
-    return '0.00'
-  } else {
-    return arrayCompleteSeries.reduce( (acc, c) => acc + c).toFixed(2).toString()
-  }
+  return lowestIndex
 
 }
+
+// function arrChecker(e, i) {
+//   if (val <= i) {
+//     return
+//   }
+// }
+
+console.log(keepOrder([1, 2, 3, 4, 7], 0))
+  
+  // parameter: sorted array, value to insert
+  // return: lowest index where the value can be inserteand maintain the array's sort
+  // e.g. keepOrder({[1, 3, 4, 4, 9], 6})
+  // results in index 4
+  
